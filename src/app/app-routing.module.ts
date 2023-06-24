@@ -18,6 +18,8 @@ import { CustomerProfileComponent } from './customer/customer-profile/customer-p
 import { ListMenuComponent } from './customer/list-menu/list-menu.component';
 import { CustomerCartComponent } from './customer/customer-cart/customer-cart.component';
 import { CheckoutComponent } from './customer/checkout/checkout.component';
+import { CustomerOrderStatusComponent } from './customer/customer-order-status/customer-order-status.component';
+import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/kitchen-staff-home.component';
 
 
 const routes: Routes = [
@@ -37,7 +39,9 @@ const routes: Routes = [
   {path:'customer/profile',component:CustomerProfileComponent},
   {path:'customer/list-menus/:restaurantName',component:ListMenuComponent},
   {path:'customer/cart',component:CustomerCartComponent},
-  {path:'customer/checkout',component:CheckoutComponent}
+  {path:'customer/checkout',component:CheckoutComponent},
+  {path:'customer/orderstatus',component:CustomerOrderStatusComponent},
+  {path:'kitchenstaff/dashboard',component:KitchenStaffHomeComponent}
 
 
 ];
