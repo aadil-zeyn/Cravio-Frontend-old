@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddMenuComponent } from './admin/add-menu/add-menu.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
+// import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { UpdateMenuComponent } from './admin/update-menu/update-menu.component';
 import { ViewMenusComponent } from './admin/view-menus/view-menus.component';
@@ -25,7 +25,7 @@ import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/ki
 const routes: Routes = [
   {path:'',component:HomePageComponent},
   {path:'admin/login',component:AdminLoginComponent},
-  {path:'admin/register',component:AdminRegisterComponent},
+  // {path:'admin/register',component:AdminRegisterComponent},
   {path:'admin/home',component:AdminHomeComponent},
   {path:'about',component:AboutComponent},
   { path: 'add-restaurant', component: AddRestaurantComponent },
