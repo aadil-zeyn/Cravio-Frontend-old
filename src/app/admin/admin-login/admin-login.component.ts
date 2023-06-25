@@ -31,8 +31,8 @@ export class AdminLoginComponent implements OnInit {
         this.erroMessage = "Bad credentails, Please Enter the correct ones"
       }
       )
-      localStorage.setItem('adminEmail',this.admin.admin_email);
-      localStorage.setItem('adminName',this.admin.admin_name);
+      localStorage.setItem('adminEmail',this.admin.userName);
+      // localStorage.setItem('adminName',this.admin.admin_name);
   }
 
 }

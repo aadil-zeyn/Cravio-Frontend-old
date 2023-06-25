@@ -12,7 +12,7 @@ import { AddMenuComponent } from './admin/add-menu/add-menu.component';
 import { AddRestaurantComponent } from './admin/add-restaurant/add-restaurant.component';
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
+// import { AdminRegisterComponent } from './admin/admin-register/admin-register.component';
 import { UpdateMenuComponent } from './admin/update-menu/update-menu.component';
 import { ViewMenusComponent } from './admin/view-menus/view-menus.component';
 import { ViewRestaurantsComponent } from './admin/view-restaurants/view-restaurants.component';
@@ -35,7 +35,7 @@ import { CustomerOrderStatusComponent } from './customer/customer-order-status/c
     AppComponent,
     NavbarComponent,
     HomePageComponent,
-    AdminRegisterComponent,
+    // AdminRegisterComponent,
     AdminLoginComponent,
     AdminHomeComponent,
     AboutComponent,

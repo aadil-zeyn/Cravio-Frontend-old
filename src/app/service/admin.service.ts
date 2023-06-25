@@ -8,14 +8,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AdminService {
   
-
+  private apiURL="http://localhost:9090/api/auth/authenticate";
   constructor(private httpClient:HttpClient) { }
 
   public loginAdminFromRest(admin:Admin):Observable<any>{
-    return this.httpClient.post<any>("http://localhost:8082/admin/login",admin);
+    return this.httpClient.post<any>(this.apiURL,admin);
   }
 
-  public registerAdminRest(admin: Admin):Observable<any> {
-    return this.httpClient.post<any>("http://localhost:8082/admin/register",admin); 
-  }
+  // public registerAdminRest(admin: Admin):Observable<any> {
+  //   return this.httpClient.post<any>("http://localhost:8082/admin/register",admin); 
+  // }
 }
