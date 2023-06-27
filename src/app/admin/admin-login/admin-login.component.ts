@@ -47,7 +47,7 @@ export class AdminLoginComponent implements OnInit {
         //   this.router.navigate(['/courses']);
         // }
       },
-      (error: any) => {
+      (error: any) => {this.erroMessage = "Bad credentails, Please Enter the correct ones";
         // Handle login error
         if (error.status === 400 && error.error && error.error.errors) {
           // Validation errors occurred

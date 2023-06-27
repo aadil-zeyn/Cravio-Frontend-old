@@ -24,18 +24,19 @@
             <div class="cart-item-details">
               <h2>{{ cartItem.prodname }}</h2>
               <p>Restaurant: {{ cartItem.restName }}</p>
-              <p>Price: Rs. {{ cartItem.price }}</p>
+              <p>Price: Rs. {{ cartItem.price*cartItem.quantity }}</p>
               <p>Quantity: {{ cartItem.quantity }}</p>
               <p>Status: {{ cartItem.status }}</p>
             </div>
             <div class="cart-item-actions">
               <button (click)="removeFromCart(cartItem)">Remove</button>
-              <button (click)="updateQuantity(cartItem, 'increase')" style="background-color: #4caf50;">+</button>
-              <button (click)="updateQuantity(cartItem, 'decrease')" style="background-color: #af4c4c;">-</button>
+              <button (click)="incrementupdateQuantity(cartItem)" style="background-color: #4caf50;">+</button>
+              <button (click)="decrementupdateQuantity(cartItem)" style="background-color: #af4c4c;">-</button>
             </div>
           </div>
           <div class="cart-total">
-            <p>Total Items: {{ cartItems.length }}</p>
+            <p>Total Items: {{ getTotalQuantity() }}</p>
+            <!-- <p>Total Items: {{ cartItems.length }}</p> -->
             <p>Total Cost: Rs. {{ calculateTotalCost() }}</p>
             <button class="proceed-to-payment-button" (click)="proceedToPayment()">Proceed to Payment</button>
           </div>

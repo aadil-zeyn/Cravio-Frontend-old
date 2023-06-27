@@ -37,39 +37,9 @@ export class CustomerLoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem("roles"))
-  }
-  // loginCustomer() {
-  //   this.customerService.loginCustomerFromRest(this.customer).subscribe(
-  //     (      data: any)=>{
-  //       console.log("User Logged in successfully");
-  //       this.routerObj.navigate(['customer/home']);
-  //       this.customer = data;
-  //     },
-  //     (      error: any)=>{
-  //       this.errorMessage = 'Bad Credentials. Please enter the correct one!!!'
-  //       console.log(error);
-  //     }
-  //   )
     
-  //     localStorage.setItem('customerEmail',this.customer.customer_email);
-  //     // localStorage.setItem('customerName',this.customer.customer_name);
-  //     // localStorage.setItem('customerAddress',this.customer.customer_address);
-  //     console.log(localStorage.getItem('customerEmail'));
-  //     return this.customer;
-  // }
+  }
   loginCustomer() {
-    // this.userService.login(this.customer).subscribe(
-    //   (      data: any)=>{
-    //     console.log("User Logged in successfully");
-    //     this.routerObj.navigate(['customer/home']);
-    //     this.customer = data;
-    //   },
-    //   (      error: any)=>{
-    //     this.errorMessage = 'Bad Credentials. Please enter the correct one!!!'
-    //     console.log(error);
-    //   }
-    // )
     this.userService.login(this.customer).subscribe(
     (response: any) => {
       // Handle successful login response
@@ -77,13 +47,13 @@ export class CustomerLoginComponent implements OnInit {
       this.userAuthService.setToken(response.jwtToken);
 
       const role = response.user.role[0].roleName;
-      // if (role === 'Admin') {
+      if (role === 'User') 
         this.router.navigate(['customer/home']);
-      // } else {
-      //   this.router.navigate(['/courses']);
-      // }
+      else
+        alert("Bad Credentials");
+      
     },
-    (error: any) => {
+    (error: any) => {this.errorMessage = "Bad credentails, Please Enter the correct ones";
       // Handle login error
       if (error.status === 400 && error.error && error.error.errors) {
         // Validation errors occurred
@@ -99,7 +69,7 @@ export class CustomerLoginComponent implements OnInit {
       localStorage.setItem('customerEmail',this.customer.userName);
       localStorage.setItem('customerName',this.customer.userFirstName);
       localStorage.setItem('customerAddress',this.customer.userAddress);
-      console.log(localStorage.getItem('customerEmail'));
+      console.log(localStorage.getItem('customerName'));
       return this.customer;
   }
 

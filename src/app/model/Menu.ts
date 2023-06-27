@@ -8,7 +8,7 @@ export class Menu {
   username:any;
 
   constructor() {
-    // this.id = 0;
+     this.id = 0;
     this.product = '';
     this.price=0;
     this.image='';
