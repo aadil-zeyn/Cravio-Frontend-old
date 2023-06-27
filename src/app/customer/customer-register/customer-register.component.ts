@@ -19,10 +19,10 @@ export class CustomerRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
     registerCustomer() {
-    this.customerService.registerCustomerRest(this.customer).subscribe(
+    this.customerService.signup(this.customer).subscribe(
       data=>{
-        console.log("User Logged in successfully");
-        this.routerObj.navigate(['customer/login']);
+        console.log("User Registered in successfully");
+        this.routerObj.navigate(['/customer/login']);
       },
       error=>{
         this.errorMessage = 'Bad Credentials. Please enter the correct one!!!'

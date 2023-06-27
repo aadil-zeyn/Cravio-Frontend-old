@@ -1,14 +1,13 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Cart } from 'src/app/model/cart';
 import { KitchenstaffService } from 'src/app/service/kitchenstaff.service';
 
 @Component({
-  selector: 'app-kitchen-staff-home',
-  templateUrl: './kitchen-staff-home.component.html',
-  styleUrls: ['./kitchen-staff-home.component.css']
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
-export class KitchenStaffHomeComponent implements OnInit {
+export class DashboardComponent {
   orders: Cart[]|any;
 
   constructor(private kitchenStaffService: KitchenstaffService) { }

@@ -19,20 +19,25 @@ import { ListMenuComponent } from './customer/list-menu/list-menu.component';
 import { CustomerCartComponent } from './customer/customer-cart/customer-cart.component';
 import { CheckoutComponent } from './customer/checkout/checkout.component';
 import { CustomerOrderStatusComponent } from './customer/customer-order-status/customer-order-status.component';
-import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/kitchen-staff-home.component';
+
+import { AuthGuard } from './auth/auth.guard';
+import { ForbidenComponent } from './forbiden/forbiden.component';
+import { DashboardComponent } from './kitchenstaff/dashboard/dashboard.component';
+import { LoginComponent } from './kitchenstaff/login/login.component';
+import { RegisterComponent } from './kitchenstaff/register/register.component';
 
 
 const routes: Routes = [
   {path:'',component:HomePageComponent},
   {path:'admin/login',component:AdminLoginComponent},
   // {path:'admin/register',component:AdminRegisterComponent},
-  {path:'admin/home',component:AdminHomeComponent},
+  {path:'admin/home',component:AdminHomeComponent,canActivate:[AuthGuard], data:{roles:['Admin']}},
   {path:'about',component:AboutComponent},
-  { path: 'add-restaurant', component: AddRestaurantComponent },
-  { path: 'add-menu', component: AddMenuComponent },
-  { path: 'view-restaurants', component: ViewRestaurantsComponent },
-  { path: 'update-menu/:prodName', component: UpdateMenuComponent },
-  { path: 'view-menus/:restaurantName', component: ViewMenusComponent },
+  { path: 'add-restaurant', component: AddRestaurantComponent ,canActivate:[AuthGuard], data:{roles:['Admin']}},
+  { path: 'add-menu', component: AddMenuComponent,canActivate:[AuthGuard], data:{roles:['Admin']} },
+  { path: 'view-restaurants', component: ViewRestaurantsComponent,canActivate:[AuthGuard], data:{roles:['Admin']} },
+  { path: 'update-menu/:prodName', component: UpdateMenuComponent,canActivate:[AuthGuard], data:{roles:['Admin']} },
+  { path: 'view-menus/:restaurantName', component: ViewMenusComponent ,canActivate:[AuthGuard], data:{roles:['Admin']}},
   {path:'customer/login',component:CustomerLoginComponent},
   {path:'customer/home',component:CustomerHomeComponent},
   {path:'customer/register',component:CustomerRegisterComponent},
@@ -41,7 +46,10 @@ const routes: Routes = [
   {path:'customer/cart',component:CustomerCartComponent},
   {path:'customer/checkout',component:CheckoutComponent},
   {path:'customer/orderstatus',component:CustomerOrderStatusComponent},
-  {path:'kitchenstaff/dashboard',component:KitchenStaffHomeComponent}
+  {path:'kitchenstaff/dashboard',component:DashboardComponent,canActivate:[AuthGuard], data:{roles:['KitchenStaff']}},
+  {path:'kitchenstaff/login',component:LoginComponent},
+  {path:'kitchenstaff/register',component:RegisterComponent,canActivate:[AuthGuard], data:{roles:['Admin']}},
+  {path:'forbidden',component:ForbidenComponent}
 
 
 ];
