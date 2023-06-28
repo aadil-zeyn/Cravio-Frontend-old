@@ -13,9 +13,15 @@ export class KitchenstaffService {
   constructor(private http: HttpClient) { }
   private apiUrl = 'http://localhost:8090/api/v1/staff'; // Replace with your actual backend API URL
 
-
   getOrders(): Observable<Cart[]> {
     return this.http.get<Cart[]>(`${this.apiUrl}/orders`);
+  }
+  getOrdersByRestuarent(restaurantName:any): Observable<Cart[]> {
+    return this.http.get<Cart[]>(`${this.apiUrl}/ordersbyrestuarent/${restaurantName}`);
+  }
+  
+  getOrdersByUser(username:any): Observable<Cart[]> {
+    return this.http.get<Cart[]>(`${this.apiUrl}/ordersbyusername/${username}`);
   }
 
   updateOrderStatus(cartId: number): Observable<Cart> {

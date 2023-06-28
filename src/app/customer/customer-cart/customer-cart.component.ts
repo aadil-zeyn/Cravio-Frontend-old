@@ -100,7 +100,8 @@ export class CustomerCartComponent {
 
   proceedToPayment(): void {
     // Implement any necessary logic before navigating to the checkout page
-    this.router.navigate(['/customer/checkout']);
+    // this.router.navigate(['/customer/checkout']);
+    this.router.navigate(['/customer/orderstatus'])
   }
 
 }

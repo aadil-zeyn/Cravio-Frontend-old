@@ -12,13 +12,14 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class LoginComponent {
   kitchenstaff=new Kitchenstaff();
+  restuarentName=localStorage.setItem('restaurent',this.kitchenstaff.userFirstName)
   constructor(
     private router:Router,private fb: FormBuilder,
     private userService:UserService,
     private userAuthService:UserAuthService) { 
    
  }
- login() {
+ login() {localStorage.setItem('restUsername',this.kitchenstaff.userName);
   this.userService.login(this.kitchenstaff).subscribe(
     (response: any) => {
       // Handle successful login response
@@ -26,9 +27,9 @@ export class LoginComponent {
       this.userAuthService.setToken(response.jwtToken);
 
       const role = response.user.role[0].roleName;
-      // if (role === 'Admin') {
+      if (role === 'KitchenStaff') 
         this.router.navigate(['kitchenstaff/dashboard']);
-      // } else {
+       else alert("incorrect credentials");
       //   this.router.navigate(['/courses']);
       // }
     },
