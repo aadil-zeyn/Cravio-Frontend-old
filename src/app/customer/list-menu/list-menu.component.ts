@@ -72,6 +72,7 @@ export class ListMenuComponent {
 
 
   addToCart(menu: Menu): void {
+    console.log(menu);
     this.cart = new Cart();
     this.cart.username = this.customerEmail; // Set the username to the customer's email
     this.cart.restName = this.restname; // Set the restaurant name
@@ -80,7 +81,8 @@ export class ListMenuComponent {
     this.cart.price = menu.price; // Set the product price
     this.cart.status = 'Added'; // Set the status as "Added"
     this.cart.quantity = 1; // Set the quantity as 1 (you can change this as per your requirements)
-  
+    console.log(menu.id)
+    console.log(this.cart.prodname)
     this.cartServ.addItemToCart(this.cart).subscribe(
       (data) => {
         alert('Added to cart successfully!');

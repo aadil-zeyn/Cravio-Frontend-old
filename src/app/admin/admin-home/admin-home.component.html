@@ -17,7 +17,7 @@
            <span>View Details</span>
          </a>
        </div>
-     
+       <a routerLink="/kitchenstaff/register"><button>register kitchenstaff</button></a>
        <div [ngSwitch]="activeComponent">
          <app-add-restaurant *ngSwitchCase="'add-restaurant'"></app-add-restaurant>
          <app-add-menu *ngSwitchCase="'add-menu'"></app-add-menu>

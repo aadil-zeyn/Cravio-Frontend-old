@@ -25,9 +25,15 @@ import { ListRestaurantComponent } from './customer/list-restaurant/list-restaur
 import { ListMenuComponent } from './customer/list-menu/list-menu.component';
 import { CustomerCartComponent } from './customer/customer-cart/customer-cart.component';
 import { CheckoutComponent } from './customer/checkout/checkout.component';
-import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/kitchen-staff-home.component';
+// import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/kitchen-staff-home.component';
 import { CustomerOrderStatusComponent } from './customer/customer-order-status/customer-order-status.component';
+
 import { SearchComponent } from './search/search.component';
+import { ForbidenComponent } from './forbiden/forbiden.component';
+import { LoginComponent } from './kitchenstaff/login/login.component';
+import { RegisterComponent } from './kitchenstaff/register/register.component';
+import { DashboardComponent } from './kitchenstaff/dashboard/dashboard.component';
+
 
 
 
@@ -54,9 +60,15 @@ import { SearchComponent } from './search/search.component';
     ListMenuComponent,
     CustomerCartComponent,
     CheckoutComponent,
-    KitchenStaffHomeComponent,
+
+    SearchComponent,
+
     CustomerOrderStatusComponent,
-    SearchComponent
+    ForbidenComponent,
+    LoginComponent,
+    RegisterComponent,
+    DashboardComponent
+
   ],
   imports: [
     BrowserModule,

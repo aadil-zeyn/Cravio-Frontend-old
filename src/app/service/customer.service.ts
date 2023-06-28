@@ -25,4 +25,21 @@ export class CustomerService {
   public registerCustomerRest(customer:Customer):Observable<any> {
     return this.httpClient.post<any>("http://localhost:8085/customer/register",customer); 
   }
+
+  private apiUrl = 'http://localhost:9090';
+
+  // constructor(private http: HttpClient) { }
+ 
+
+  signup(customer:Customer) {
+    const body = {
+      userName: customer.userName,
+      userFirstName: customer.userFirstName,
+      userLastName: customer.userLastName,
+      userAddress:customer.userAddress,
+      userPassword: customer.userPassword
+    };
+    return this.httpClient.post<any>(`${this.apiUrl}/api/auth/registerNewUser`, body);
+  }
+
 }

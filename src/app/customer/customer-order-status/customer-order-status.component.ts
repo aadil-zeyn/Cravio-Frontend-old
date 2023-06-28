@@ -11,14 +11,14 @@ export class CustomerOrderStatusComponent  implements OnInit  {
   orders: Cart[]|any;
 
   constructor(private kitchenStaffService: KitchenstaffService) { }
-
+userName=localStorage.getItem('customerEmail');
   ngOnInit(): void {
     this.fetchOrders();
     console.log("aadil")
   }
 
   fetchOrders(): void {console.log("aadil")
-    this.kitchenStaffService.getOrders().subscribe(
+    this.kitchenStaffService.getOrdersByUser(this.userName).subscribe(
             orders => this.orders = orders,
             error=> console.error("aadil",error)
     );console.log(this.orders)
