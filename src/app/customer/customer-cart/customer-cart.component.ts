@@ -14,8 +14,20 @@ import { Router } from '@angular/router';
 export class CustomerCartComponent {
 
     cartItems: Cart[] = [];
+    
     customerEmail = localStorage.getItem('customerEmail');
+  
 
+    getTotalQuantity(): number {
+      let totalQuantity = 0;
+  
+      for (const cartItem of this.cartItems) {
+        totalQuantity += cartItem.quantity;
+      }
+  
+      return totalQuantity;
+    }
+    
   constructor(private cartService: CartService,private location: Location,private router: Router) { }
 
   ngOnInit(): void {
@@ -48,9 +60,30 @@ export class CustomerCartComponent {
   }
   
 
-  updateQuantity(cartItem: Cart, action: string): void {
-    // Implement the logic to update the quantity of the cart item
-    // Call the appropriate service method and handle the response
+  decrementupdateQuantity(cartItem: Cart): void {
+    this.cartService.dupdateQuantity(cartItem.cartid).subscribe(
+      (data) => {
+        // Update the cartItem with the updated quantity received from the server
+        cartItem.quantity = data.quantity;
+      },
+      (error) => {
+        console.log(error);
+        alert('Failed to update quantity. Please try again.');
+      }
+    );
+  }
+
+  incrementupdateQuantity(cartItem: Cart): void {
+    this.cartService.iupdateQuantity(cartItem.cartid).subscribe(
+      (data) => {
+        // Update the cartItem with the updated quantity received from the server
+        cartItem.quantity = data.quantity;
+      },
+      (error) => {
+        console.log(error);
+        alert('Failed to update quantity. Please try again.');
+      }
+    );
   }
 
   calculateTotalCost(): number {
@@ -67,7 +100,8 @@ export class CustomerCartComponent {
 
   proceedToPayment(): void {
     // Implement any necessary logic before navigating to the checkout page
-    this.router.navigate(['/customer/checkout']);
+    // this.router.navigate(['/customer/checkout']);
+    this.router.navigate(['/customer/orderstatus'])
   }
 
 }

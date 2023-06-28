@@ -12,11 +12,12 @@ export class CartService {
 
     /*Customer Add To Cart*/
     addItemToCart(c: Cart):Observable<Cart>{
+      console.log(c)
       return this.http.post<Cart>(`http://localhost:8090/api/v1/cart/addCart`,c)
     }
   
     getCart(username: any):Observable<Array<Cart>>{
-        return this.http.get<Array<Cart>>(`http://localhost:8090//api/v1/cart/viewByuser/${username}`);
+        return this.http.get<Array<Cart>>(`http://localhost:8090/api/v1/cart/viewByuser/${username}`);
     }
 
     removeFromCartByUsername(customerEmail: string | null, cartid: number) {
@@ -24,6 +25,16 @@ export class CartService {
       return this.http.delete<void>(url);
     }
 
+    private baseUrl = 'http://localhost:8090/api/v1'; 
 
+    dupdateQuantity(cartid: number): Observable<Cart> {
+      const url = `${this.baseUrl}/cart/decrementUpdateQuantity/${cartid}`;
+      return this.http.put<Cart>(url, null);
+    }
+  
+    iupdateQuantity(cartid: number): Observable<Cart> {
+      const url = `${this.baseUrl}/cart/incrementUpdateQuantity/${cartid}`;
+      return this.http.put<Cart>(url, null);
+    }
    
 }
