@@ -27,6 +27,7 @@ import { CustomerCartComponent } from './customer/customer-cart/customer-cart.co
 import { CheckoutComponent } from './customer/checkout/checkout.component';
 import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/kitchen-staff-home.component';
 import { CustomerOrderStatusComponent } from './customer/customer-order-status/customer-order-status.component';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -54,7 +55,8 @@ import { CustomerOrderStatusComponent } from './customer/customer-order-status/c
     CustomerCartComponent,
     CheckoutComponent,
     KitchenStaffHomeComponent,
-    CustomerOrderStatusComponent
+    CustomerOrderStatusComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

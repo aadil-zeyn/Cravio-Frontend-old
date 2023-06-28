@@ -66,6 +66,7 @@
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 10px;
   }
   
   .go-back-button:hover {
@@ -75,5 +76,13 @@
   .go-back-button:focus {
     outline: none;
   }
+
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
   
   
