@@ -1,5 +1,8 @@
 <div class="container">
+  <div class="search-bar-container">
+    <app-search (searchValEvent)="applyFilter($event)"></app-search>
     <button class="go-back-button" (click)="goBack()">Go Back</button>
+  </div>
       <h1>Menu List</h1>
       <div class="menu-list">
         <div *ngFor="let menu of menus" class="menu-card">

@@ -15,6 +15,8 @@ export class ViewMenusComponent {
 
   menus: Menu[];
   restname:string;
+  filteredMenus: Menu[]; // Variable to store the filtered menus
+  searchTerm: string; // Added variable for search term
 
   constructor(private connectService: ConnectionService, private route: ActivatedRoute,private location: Location, private router: Router) {}
 
@@ -42,12 +44,23 @@ export class ViewMenusComponent {
     this.connectService.getMenu(this.restname).subscribe(
       (response: any[]) => {
         this.menus = response;
+        this.filteredMenus = this.menus;
         console.log(this.menus);
       },
       (error: any) => {
         console.log(error);
       }
     );
+  }
+
+  applyFilter(searchTerm: string): void {
+    if (searchTerm) {
+      this.filteredMenus = this.menus.filter((menu) =>
+        menu.product.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    } else {
+      this.filteredMenus = this.menus; // If no search term, show all menus
+    }
   }
 
   goBack(): void {
