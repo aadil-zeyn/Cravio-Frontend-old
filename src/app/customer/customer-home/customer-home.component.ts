@@ -50,4 +50,11 @@ export class CustomerHomeComponent implements OnInit {
       console.error('Error fetching name:', error);
     }
   }
+
+  orderStatus(): void {
+    // Implement any necessary logic before navigating to the checkout page
+    // this.router.navigate(['/customer/checkout']);
+    this.routerObj.navigate(['/customer/orderstatus'])
+  }
+
 }

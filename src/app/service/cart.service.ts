@@ -12,7 +12,7 @@ export class CartService {
 
     /*Customer Add To Cart*/
     addItemToCart(c: Cart):Observable<Cart>{
-      console.log(c)
+      console.log("this",c)
       return this.http.post<Cart>(`http://localhost:8090/api/v1/cart/addCart`,c)
     }
   

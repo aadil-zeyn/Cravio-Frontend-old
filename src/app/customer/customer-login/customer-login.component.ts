@@ -39,7 +39,7 @@ export class CustomerLoginComponent implements OnInit {
   ngOnInit(): void {
     
   }
-  loginCustomer() {
+  loginCustomer() {console.log(this.customer)
     this.userService.login(this.customer).subscribe(
     (response: any) => {
       // Handle successful login response
@@ -65,7 +65,7 @@ export class CustomerLoginComponent implements OnInit {
       }
     }
   );
-    
+    localStorage.clear;
       localStorage.setItem('customerEmail',this.customer.userName);
       localStorage.setItem('customerName',this.customer.userFirstName);
       localStorage.setItem('customerAddress',this.customer.userAddress);
