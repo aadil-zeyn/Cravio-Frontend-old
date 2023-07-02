@@ -15,8 +15,8 @@ export class ListMenuComponent {
   restname:string;
   cart:Cart;
   customerEmail = localStorage.getItem('customerEmail');
-  constructor(private cartServ: CartService,private connectService: ConnectionService, private route: ActivatedRoute,private location: Location, private router: Router) {
-  }
+  constructor(private cartServ: CartService,private connectService: ConnectionService, private route: ActivatedRoute,private location: Location, private router: Router) 
+  {}
     
 
 
@@ -46,9 +46,9 @@ export class ListMenuComponent {
 
 
   addToCart(menu: Menu): void {
-    console.log(menu);
+    // console.log(menu);
     this.cart = new Cart();
-    this.cart.username = this.customerEmail; // Set the username to the customer's email
+    this.cart.username = this.customerEmail; console.log(this.customerEmail)// Set the username to the customer's email
     this.cart.restName = this.restname; // Set the restaurant name
     this.cart.prodid = menu.id; // Set the product ID
     this.cart.prodname = menu.product; // Set the product name
@@ -60,7 +60,7 @@ export class ListMenuComponent {
     this.cartServ.addItemToCart(this.cart).subscribe(
       (data) => {
         alert('Added to cart successfully!');
-        console.log(data)
+        console.log(data,"r")
       },
       (error) => {
         console.log(error);

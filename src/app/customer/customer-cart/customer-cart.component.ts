@@ -47,8 +47,7 @@ export class CustomerCartComponent {
 
   removeFromCart(cartItem: Cart): void {
     this.cartService.removeFromCartByUsername(this.customerEmail, cartItem.cartid).subscribe(
-    () => {
-        
+    () => {console.log("meir")
         this.cartItems = this.cartItems.filter(item => item.prodid !== cartItem.prodid);
         alert("Item successfully removed from cart");
       },
