@@ -27,10 +27,13 @@ import { CustomerCartComponent } from './customer/customer-cart/customer-cart.co
 import { CheckoutComponent } from './customer/checkout/checkout.component';
 // import { KitchenStaffHomeComponent } from './kitchen-staff/kitchen-staff-home/kitchen-staff-home.component';
 import { CustomerOrderStatusComponent } from './customer/customer-order-status/customer-order-status.component';
+
+import { SearchComponent } from './search/search.component';
 import { ForbidenComponent } from './forbiden/forbiden.component';
 import { LoginComponent } from './kitchenstaff/login/login.component';
 import { RegisterComponent } from './kitchenstaff/register/register.component';
 import { DashboardComponent } from './kitchenstaff/dashboard/dashboard.component';
+
 
 
 
@@ -57,12 +60,15 @@ import { DashboardComponent } from './kitchenstaff/dashboard/dashboard.component
     ListMenuComponent,
     CustomerCartComponent,
     CheckoutComponent,
-    // KitchenStaffHomeComponent,
+
+    SearchComponent,
+
     CustomerOrderStatusComponent,
     ForbidenComponent,
     LoginComponent,
     RegisterComponent,
     DashboardComponent
+
   ],
   imports: [
     BrowserModule,

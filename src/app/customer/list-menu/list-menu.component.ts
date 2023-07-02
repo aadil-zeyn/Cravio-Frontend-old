@@ -14,6 +14,9 @@ export class ListMenuComponent {
   menus: Menu[];
   restname:string;
   cart:Cart;
+  filteredMenus: Menu[]; // Variable to store the filtered menus
+  searchTerm: string; // Added variable for search term
+
   customerEmail = localStorage.getItem('customerEmail');
   constructor(private cartServ: CartService,private connectService: ConnectionService, private route: ActivatedRoute,private location: Location, private router: Router) 
   {}
@@ -32,6 +35,7 @@ export class ListMenuComponent {
     this.connectService.getMenu(this.restname).subscribe(
       (response) => {
         this.menus = response;
+        this.filteredMenus = this.menus;
         console.log(this.menus);
       },
       (error) => {
@@ -39,6 +43,28 @@ export class ListMenuComponent {
       }
     );
   }
+
+  // fetchMenus() {
+  //   this.connectService.getMenu(this.restname, this.searchTerm).subscribe(
+  //     (response) => {
+  //       this.menus = response;
+  //       console.log(this.menus);
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+  applyFilter(searchTerm: string): void {
+    if (searchTerm) {
+      this.filteredMenus = this.menus.filter((menu) =>
+        menu.product.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    } else {
+      this.filteredMenus = this.menus; // If no search term, show all menus
+    }
+  }
+  
 
   goBack(): void {
     this.location.back();
